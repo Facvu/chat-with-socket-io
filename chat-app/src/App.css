@@ -1,0 +1,58 @@
+.ring-container {
+    position: relative;
+}
+
+.circle-connected {
+    width: 10px;
+    height: 10px;
+    background-color: #96d463;
+    border-radius: 50%;
+}
+
+.ringring-connected {
+    border: 3px solid #96d463;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    height: 20px;
+    width: 20px;
+    top: 22px;
+    left: -5px;
+    position: absolute;
+    animation: pulsate 1s ease-out;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    opacity: 0.0
+}
+
+.circle-offline {
+    width: 10px;
+    height: 10px;
+    background-color: #eb5555;
+    border-radius: 50%;
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
+}
+
+.bg-app {
+    background-color: #ff780059;
+}
+
+.user:hover{
+    background-color: #ff780059;
+}
+
