@@ -7,7 +7,7 @@ const Loader = () => {
     return (<div>
         <div className="loading">
             <div className="loading-text">
-                <img src="public/fchat.svg" />
+                <img src="/fchat.svg" />
                 <span className="loading-text-words">C</span>
                 <span className="loading-text-words">A</span>
                 <span className="loading-text-words">R</span>
