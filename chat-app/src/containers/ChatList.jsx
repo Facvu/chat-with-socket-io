@@ -96,7 +96,7 @@ const ListChat = (props) => {
         <div>
             <div className="row row-cols-auto justify-content-center items-align-center text-center p-3 bg-black mb-3 text-light">
                 <div className="col">
-                    <img src="public/fchat.svg" />
+                    <img src="/fchat.svg" />
                     <h3> Welcome {props.name} </h3>
                     {window.DEBUG && <button onClick={e => disconnect()}>disconnect</button>}
                 </div>
