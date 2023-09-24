@@ -1,4 +1,5 @@
+const { VITE_REACT_APP_SECRET, VITE_REACT_APP_CONECTION_URL } = import.meta.env
 export const config = {
-    SECRET: process.env.SECRET || 'development',
-    CONNECTION_URL: process.env.CONNECTION_URL || 'http://192.168.0.2/'
+    SECRET: VITE_REACT_APP_SECRET || 'development',
+    CONNECTION_URL: VITE_REACT_APP_CONECTION_URL || 'http://192.168.0.2/'
 }
