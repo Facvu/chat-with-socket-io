@@ -57,7 +57,7 @@ const ListChat = (props) => {
                         u.messages[h].push(content)
                     }
                     if (selectedUser?.name === u.name)
-                            setSelectedUser((ps) => (u))
+                        setSelectedUser((ps) => (u))
                     return u
                 })
                 return {
@@ -76,9 +76,9 @@ const ListChat = (props) => {
                 return u
             })
             setState(state => ({ ...state, users: _users }))
+            setLoading(false)
         })
 
-        setLoading(false)
         return () => {
             s.disconnect()
             s.off('user_connected')

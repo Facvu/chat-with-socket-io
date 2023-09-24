@@ -13,7 +13,7 @@ function App() {
 			await setTimeout(() => {
 				const name = localStorage.getItem('chat_name')
 				console.log(name)
-				if (name)
+				if (false)
 					setState({ ...state, name })
 				setState(state => ({ ...state, loading: false }))
 			}, 1000 * Math.floor(Math.random() * 4 + 1))

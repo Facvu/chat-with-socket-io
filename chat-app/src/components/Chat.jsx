@@ -8,11 +8,13 @@ const Chat = (props) => {
     const [bottom, setBottom] = useState(true)
     const { user, self } = props
     useEffect(() => {
+        refreshScroll()
+    }, [])
+    useEffect(() => {
         s.on('rescroll', data => {
             console.log(data, bottom)
             if (bottom) {
                 refreshScroll()
-                console.log('rescrollin', bottom)
             }
         })
 
@@ -51,6 +53,12 @@ const Chat = (props) => {
         setText(e.target.value)
     }
 
+    const resetUnreadMessages = () => {
+        const _user = props.user
+        _user.newMessage = 0
+        props.setSelectedUser(_user)
+    }
+
     const refreshScroll = () => {
         setTimeout(() => {
             var chatHistory = document.getElementById("messgs");
@@ -68,7 +76,6 @@ const Chat = (props) => {
             setBottom(() => (true))
     }
 
-
     return (<div className="bg-app" style={{ borderRadius: '10px' }}>
         <div className="container py-3">
             <div className="row d-flex justify-content-center">
@@ -78,10 +85,7 @@ const Chat = (props) => {
                             style={{ borderTop: '4px solid #000000' }}>
                             <h5 className="mb-0">Chat with {user.name}</h5>
                             <div className="d-flex flex-row align-items-center">
-                                <span className="badge bg-app me-3">{'  '}</span>
-                                <i className="fas fa-minus me-3 text-muted fa-xs"></i>
-                                <i className="fas fa-comments me-3 text-muted fa-xs"></i>
-                                <i className="fas fa-times text-muted fa-xs"></i>
+                                <span style={{ cursor: 'pointer'}} onClick={e => props.setSelectedUser(null)} className="badge user bg-app text-dark">{'X'}</span>
                             </div>
                         </div>
                         <div id="messgs" className="card-body" data-mdb-perfect-scrollbar="true"
@@ -95,19 +99,17 @@ const Chat = (props) => {
                         </div>
                         <div className="card-footer text-muted d-flex justify-content-start align-items-center mt-3 p-3">
                             <div className="input-group mb-0">
-                                <input type="text" className="form-control" placeholder="Type message" value={text}
+                                <input type="text" className="form-control" placeholder="Type message" value={text} onClick={e => resetUnreadMessages()}
                                     aria-label="Recipient's username" aria-describedby="button-addon2" onChange={e => onChange(e)} onKeyDown={e => onEnter(e)} />
-                                <button className="btn btn-dark bg-app" type="button" id="button-addon2"
+                                <button className="btn btn-outline-dark bg-app" type="button" id="button-addon2"
                                     style={{ paddingTop: '.55rem' }} onClick={(e) => onClick(e)}>
                                     Button
                                 </button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>)
 }

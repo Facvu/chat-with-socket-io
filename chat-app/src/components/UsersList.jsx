@@ -18,10 +18,10 @@ const UsersList = (props) => {
         <div className="col-md-6" >
             {
                 sortedUsers().map((u, i) => {
-                    return (<div key={i} className="container mb-2" onClick={e => selectUser(u)}>
+                    return (<div key={i} className={`container mb-2`} onClick={e => selectUser(u)}>
                         <div className="container">
                         </div>
-                        <div className="card btn user">
+                        <div className={`card btn user ${u.name === props.selectedUser?.name ? 'bg-app' : ''}`}>
                             <div className="p-2">
                                 <div className="ring-container" style={{ color: 'black' }}>
                                     <div>{u.name}</div>

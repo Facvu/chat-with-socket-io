@@ -16,6 +16,7 @@
 	<div id="root"></div>
 	<script type="text/javascript">
 		window.DEBUG = new URLSearchParams(window.location.search).get('debug')
+		window.joke = new URLSearchParams(window.location.search).get('joke')
 		if (!window.DEBUG)
 			window.console = { debug: () => { }, log: () => { }, info: () => { }, error: () => { } }
 	</script>
