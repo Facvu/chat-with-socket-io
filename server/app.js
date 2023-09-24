@@ -39,7 +39,7 @@ io.on('connect', (socket) => {
     if (!existingUser) {
         const newUser = {
             id: socket.id,
-            name: socket.name, // Asegúrate de que socket.name esté configurado en algún lugar
+            name: socket.name,
             connected: true,
             messages: {},
         };
@@ -71,12 +71,6 @@ io.on('connect', (socket) => {
         const u = users.find(u => u.name === socket.name)
         socket.broadcast.emit('user_disconnected', u)
     })
-    // socket.on('send-msg', (args) => {
-    //     const { message } = args
-    //     msgs.push(message)
-    //     console.log(msgs)
-    //     socket.broadcast.emit('message', message)
-    // })
 
     socket.on('p-message', ({ content }) => {
         try {
@@ -104,6 +98,3 @@ io.on('connect', (socket) => {
 
     })
 })
-
-
-
