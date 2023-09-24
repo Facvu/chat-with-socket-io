@@ -11,7 +11,6 @@ const Login = (props) => {
         <div className="col">
             <img src="/fchat.svg" />
             <h3> Welcome </h3>
-            {window.DEBUG && <button onClick={e => disconnect()}>disconnect</button>}
         </div>
     </div><div className="row justify-content-center">
             <div className="col-md-6 mt-5">
