@@ -12,13 +12,9 @@ const Chat = (props) => {
     }, [])
     useEffect(() => {
         s.on('rescroll', data => {
-            console.log(data, bottom)
-            if (bottom) {
+            if (bottom)
                 refreshScroll()
-            }
         })
-
-
         return () => {
             s.off('rescroll')
         }
@@ -26,12 +22,10 @@ const Chat = (props) => {
     const onEnter = (e) => {
         if (e.key === 'Enter' && e.target.value !== '') {
             send()
-            setText('')
         }
     }
     const onClick = (e) => {
         send()
-        setText('')
     }
     const send = () => {
         const m = {
@@ -48,6 +42,7 @@ const Chat = (props) => {
         props.setSelectedUser(sUser)
         refreshScroll()
         s.emit('p-message', { content: m, to: user.id })
+        setText('')
     }
     const onChange = (e) => {
         setText(e.target.value)
@@ -85,7 +80,7 @@ const Chat = (props) => {
                             style={{ borderTop: '4px solid #000000' }}>
                             <h5 className="mb-0">Chat with {user.name}</h5>
                             <div className="d-flex flex-row align-items-center">
-                                <span style={{ cursor: 'pointer'}} onClick={e => props.setSelectedUser(null)} className="badge user bg-app text-dark">{'X'}</span>
+                                <span style={{ cursor: 'pointer' }} onClick={e => props.setSelectedUser(null)} className="badge user bg-app text-dark">{'X'}</span>
                             </div>
                         </div>
                         <div id="messgs" className="card-body" data-mdb-perfect-scrollbar="true"
